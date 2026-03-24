@@ -141,7 +141,7 @@
     }
 
     .lead {
-      letter-spacing: 3%;
+      letter-spacing: 0.03em;
     }
     
     .zone-tools img {
@@ -157,6 +157,12 @@
     .slider {
       display: flex;
       overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .slider::-webkit-scrollbar {
+      display: none;
     }
 
     .btn-circle {
@@ -428,7 +434,6 @@
   </div>
 
   </div>
-</div>
 
 </body>
 
