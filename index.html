@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paul Amat - UX Design</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200..1000&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        .forEach(el => new bootstrap.Tooltip(el));
+    });
+  </script>
+
+  <style> 
+
+    :root {
+      --bs-primary: #E24329;
+      --bs-primary-rgb: 255, 87, 51;
+      --bs-primary-bg-subtle: #ffe3dc;
+      --bs-primary-border-subtle: #ffc1b3;
+    }
+
+    a {
+      color: #E24329;
+    }
+
+    a:hover {
+      color: #BD3822;
+    }
+
+    .btn-primary {
+      --bs-btn-bg: #E24329;
+      --bs-btn-border-color: #E24329;
+      --bs-btn-hover-bg: #BD3822;
+      --bs-btn-hover-border-color: #BD3822;
+      --bs-btn-active-bg: #e64a19;
+      --bs-btn-active-border-color: #e64a19;
+      --bs-btn-disabled-bg: #E24329;
+      --bs-btn-disabled-border-color: #E24329;
+    }
+
+    .btn-outline-secondary {
+      --bs-btn-color: #E24329;
+      --bs-btn-border-color: #E24329;
+
+      --bs-btn-hover-color: #FFF;
+      --bs-btn-hover-bg: #BD3822;
+      --bs-btn-hover-border-color: #BD3822;
+
+      --bs-btn-active-color: #FFF;
+      --bs-btn-active-bg: #e64a19;
+      --bs-btn-active-border-color: #e64a19;
+    }
+
+    html {
+      font-size: 18px; /* défaut ≈ 16px */
+    }
+
+    .body {
+      font-family: "Nunito Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 300;
+      font-style: normal;
+      font-variation-settings:
+        "wdth" 100,
+        "YTLC" 500;
+      background-color: #FFFFFF;
+      color: #171321;
+    }
+
+    .body {
+      margin-top: 0; /* default for mobile */
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 1024px) {
+      .body {
+        margin-top: 60px;
+        margin-bottom: 60px;
+      }
+      h1 {
+      font-size: 76px;
+      letter-spacing: -3px;
+      line-height: 0.9;
+    }
+    }
+
+    h1,
+    h2 {
+      font-weight: 800;
+    }
+
+    a,
+    dt {
+      font-weight: 600;
+    }
+
+    .text-muted {
+      font-size: smaller;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .no-margin-top {
+      margin-top: 0;
+    }
+
+    .container {
+      padding: 2.5rem 2rem 2.5rem 2rem;
+      max-width: 800px;
+    }
+
+    .zone-pattern {
+      background-color: #FFFFFF;
+      background-size: 10px 10px;
+      background-image: repeating-linear-gradient(
+      45deg,
+      #FDA32680 0,
+      #FDA32680 0.5px,
+      #FFFFFF 0,
+      #FFFFFF 50%
+    );
+    }
+
+    .zone-pattern h2 {
+      font-family: "Funnel", sans-serif;
+      font-size: small;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 4%;
+    }
+
+    .lead {
+      letter-spacing: 0.03em;
+    }
+
+    .zone-culture {
+      margin-top: 20px;
+      margin-bottom: 32px;
+    }
+
+    .zone-culture img {
+      height: 32px;
+      margin-right: 4px;
+    }
+
+    .zone-culture div {
+      display: flex;
+      margin-right: 12px;
+    }
+    
+    .zone-tools img {
+      height: 32px;
+      margin-right: 16px;
+    }
+
+    .zone-clients img {
+      height: 24px;
+      margin-right: 24px;
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+
+    .slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .btn-circle {
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn-circle .material-symbols-rounded {
+      font-size: 24px;
+    }
+
+    dl dd p {
+      margin: 0;
+    }
+
+    .gradient {
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(
+        to right,
+        #E24329,
+        #F28C38,
+        #F7C65A
+      );
+    }
+
+    .card {
+      margin-bottom: 12px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="gradient">&nbsp;</div>
+
+  <div class="body">
+
+  <div>
+    <div class="container">
+      <p class="lead">
+        Paul Amat
+      </p>
+      <h1>
+        <span class="text-primary">UX Designer</span> thriving in complex systems
+      </h1>
+      <div class="slider zone-culture">
+        <div class="lead"><img src="assets/culture-design-system.svg"> Design System</div>
+        <div class="lead"><img src="assets/culture-ai.svg"> AI</div>
+        <div class="lead"><img src="assets/culture-dataviz.svg"> DataViz</div>            
+      </div>
+      <p>
+        UX Designer thriving in complex systems, I design intuitive digital experiences at the core of business processes. Combining user research, Design Systems expertise, and data sensitivity, I deliver real strategic value to organizations.
+      </p>
+      <a style="display: flex; width: fit-content;" href="https://www.linkedin.com/in/paul-amat/" class="btn btn-outline-secondary" rel="noopener noreferrer"
+        target="_blank">
+        LinkedIn <span class="material-symbols-rounded">arrow_outward</span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="zone-elevated zone-pattern zone-clients">
+    <div class="container">
+      <h2 class="no-margin-top">
+        I worked with them
+      </h2>
+      <div class="slider">
+        <img src="assets/logo-airbus.svg" data-bs-title="Airbus" data-bs-toggle="tooltip" data-bs-placement="top">
+        <img src="assets/logo-bnp.svg" data-bs-title="BNP Paribas" data-bs-toggle="tooltip" data-bs-placement="top">
+        <img src="assets/logo-canalplus.svg" data-bs-title="CANAL+" data-bs-toggle="tooltip" data-bs-placement="top">
+        <img src="assets/logo-loreal.svg" data-bs-title="L'Oréal" data-bs-toggle="tooltip" data-bs-placement="top">
+        <img src="assets/logo-pacifica.svg" data-bs-title="Pacifica" data-bs-toggle="tooltip" data-bs-placement="top">
+        <img src="assets/logo-psa.svg" data-bs-title="PSA" data-bs-toggle="tooltip" data-bs-placement="top">
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="container">
+
+      <h2>
+        Apps
+      </h2>
+      
+      <div>
+        <dl>
+
+          <div class="card">
+            <div class="card-body">
+              <dt class="card-title">
+                UX Scores
+              </dt>
+              <dd class="card-text">
+                Simple calculator for UX questionnaires (SUS, UMUX-Lite, etc.).
+              </dd>
+              <a style="display: flex; width: fit-content;" class="btn btn-primary" href="https://uxscores.streamlit.app/" rel="noopener noreferrer" target="_blank">
+                Start App
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <dt class="card-title">
+                Transcript Analyzer
+              </dt>
+              <dd class="card-text">
+                Load interview transcripts to start a textual quantitative analysis.
+              </dd>
+              <a style="display: flex; width: fit-content;" class="btn btn-primary" href="https://amatpaul.shinyapps.io/textual-analysis/" rel="noopener noreferrer" target="_blank">
+                Start App
+              </a>
+            </div>
+          </div>
+
+      </div>
+
+      <h2>
+        Articles
+      </h2>
+
+      <dl>
+
+        <dt>
+          <a href="https://medium.com/design-bootcamp/one-year-as-a-ux-designer-in-a-data-science-team-what-i-learned-3ada9f2f07b6?source=friends_link&sk=5435e710e70372c41b9c3a6b618d9828"
+            target="_blank">
+            One Year as a UX Designer in a Data Science Team — What I Learned
+          </a>
+        </dt>
+        <dd class="text-muted">
+          (en) uxdesign.cc
+        </dd>
+
+        <!-- <dt>
+          <a href="https://uxdesign.cc/how-to-visualize-data-from-ux-standardized-questionnaires-c3354708b2d9?source=friends_link&sk=b328912d2496b2095b0a30cf9370122c"
+            target="_blank">
+            Visualize data from UX standardized questionnaires
+          </a>
+        </dt>
+        <dd class="text-muted">
+          (en) uxdesign.cc
+        </dd> -->
+
+        <dt>
+          <a href="https://uxdesign.cc/emotions-and-micro-expressions-in-ux-research-user-testing-a58b66612de?source=friends_link&sk=cb0bdb18f900ebb23745d63aacd21fe7"
+            target="_blank">
+            Micro-expressions in user testing: when users betray their true emotional states
+          </a>
+        </dt>
+        <dd class="text-muted">
+          (en) uxdesign.cc
+        </dd>
+
+        <dt>
+          <a href="https://uxdesign.cc/design-system-based-on-the-golden-ratio-ui-%C9%B8-e45eb98655cb?source=friends_link&sk=24f9184447ca3c8fdc786a0c49cd5b8d"
+            target="_blank">
+            Rhythm your Design System with golden ratio
+          </a>
+        </dt>
+        <dd class="text-muted">
+          (en) uxdesign.cc
+        </dd>
+
+      </dl>
+
+      <a href="https://amatpaul.medium.com/" class="text-muted" rel="noopener noreferrer" target="_blank">More on Medium</a>
+
+    </div>
+  </div>
+
+  <div class="zone-elevated zone-pattern zone-tools">
+    <div class="container">
+      <h2 class="no-margin-top">
+        I love those tools
+      </h2>
+      <div class="slider">
+        <img src="assets/tool-figma.svg" data-bs-title="Figma" data-bs-toggle="tooltip" data-bs-placement="top">
+        <img src="assets/tool-dovetail.svg" data-bs-title="Dovetail" data-bs-toggle="tooltip" data-bs-placement="top">
+        <img src="assets/tool-maze.svg" data-bs-title="Maze" data-bs-toggle="tooltip" data-bs-placement="top">
+        <img src="assets/tool-usertesting.svg" data-bs-title="UserTesting" data-bs-toggle="tooltip"
+          data-bs-placement="top">
+        <img src="assets/tool-maxqda.svg" data-bs-title="Maxqda" data-bs-toggle="tooltip" data-bs-placement="top">
+        <img src="assets/tool-powerbi.svg" data-bs-title="Power BI" data-bs-toggle="tooltip" data-bs-placement="top">
+        <img src="assets/tool-rstudio.svg" data-bs-title="R Studio" data-bs-toggle="tooltip" data-bs-placement="top">
+        <img src="assets/tool-python.svg" data-bs-title="Python" data-bs-toggle="tooltip" data-bs-placement="top">
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="container">
+
+      <h2>
+        Certifications
+      </h2>
+
+      <dl>
+        <dt>
+          Open AI
+        </dt>
+        <dd class="text-muted">
+          DataCamp (2026)
+        </dd>
+
+        <dt>
+          Data Analyst - Design in Power BI
+        </dt>
+        <dd class="text-muted">
+          DataCamp (2025)
+        </dd>
+
+        <dt>
+          Accessibilité Numérique
+        </dt>
+        <dd class="text-muted">
+          Access42 (2023)
+        </dd>
+
+        <dt>
+          Qualitative Research Design and Methods
+        </dt>
+        <dd class="text-muted">
+          Coursera (2023)
+        </dd>
+
+        <!-- <dt>
+          Methods and Statistics in Social Sciences
+        </dt>
+        <dd class="text-muted">
+          Coursera (2023)
+        </dd> -->
+
+        <dt>
+          Gamification
+        </dt>
+        <dd class="text-muted">
+          Coursera (2023)
+        </dd>
+
+        <!-- <dt>
+          Micro-Expressions
+        </dt>
+        <dd class="text-muted">
+          Paul Ekman Group (2021)
+        </dd> -->
+      </dl>
+
+      <a href="https://www.linkedin.com/in/paul-amat/" class="text-muted" rel="noopener noreferrer" target="_blank">More on LinkedIn</a>
+
+      <h2>
+        Education
+      </h2>
+      <dl>
+        <dt>
+          Master UX Design & Research
+        </dt>
+        <dd class="text-muted">
+          L'Ecole Multimédia, RNCP36289 (2018)
+        </dd>
+        <dt>
+          Master Design industriel
+        </dt>
+        <dd class="text-muted">
+          Créapôle ESDI, RNCP17264 (2015)
+        </dd>
+      </dl>
+    </div>
+  </div>
+
+  <div>
+    <div class="container d-flex justify-content-center" style="padding-top: 0; padding-bottom: 6rem;">
+      <a href="#" class="btn btn-outline-secondary btn-circle">
+        <span class="material-symbols-rounded">arrow_upward</span>
+      </a>
+    </div>
+  </div>
+
+  </div>
+
+</body>
+
+</html>
