@@ -1,7 +1,3 @@
----
-layout: default
----
-
 # snippets
 
 ## Managing GitHub accounts with GitHub CLI
