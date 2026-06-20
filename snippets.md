@@ -1,3 +1,5 @@
+[![Back home](https://img.shields.io/badge/%E2%AC%85%20Back%20home-blue)](index.html)
+
 # snippets
 
 ## Managing GitHub accounts with GitHub CLI
