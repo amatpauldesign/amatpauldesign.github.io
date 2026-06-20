@@ -1,10 +1,4 @@
----
-layout: default
----
-
 # snippets
-
-[Back to amatpauldesign.github.io](https://amatpauldesign.github.io/)
 
 ## Managing GitHub accounts with GitHub CLI
 
