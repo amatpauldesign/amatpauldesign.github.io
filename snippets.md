@@ -172,3 +172,41 @@ Remove a Docker container after execution
 ```bash
 docker run --rm -p 8501:8501 my_streamlit_app
 ```
+
+## AI setup for Hugging Face
+
+Install necessary packages
+
+```bash
+pip install huggingface_hub python-dotenv Pillow
+```
+
+Add HF Token: it is necessary to add a User Access Tokens. The token key is known or created from [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens).
+
+From roots, add a .env file with content:
+
+```bash
+HF_TOKEN=Token_key_here
+```
+
+Model used is [https://huggingface.co/black-forest-labs/FLUX.1-schnell](https://huggingface.co/black-forest-labs/FLUX.1-schnell).
+
+## ## AI setup for Ollama
+
+Install necessary packages
+
+```bash
+pip install openai
+```
+
+Download a model to local Ollama
+
+```bash
+ollama run qwen2.5:7b
+```
+
+List models already loaded
+
+```bash
+ollama list
+```
