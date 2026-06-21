@@ -38,7 +38,8 @@ Tones are to type after all letters. The system decides where it should be. Pres
     - `Mấy tiếng?`: How much time?
     - `Mấy tiền?`: How much money?
 - `Tại sao…`: Why
-- `Tại sao (subject) lại (verb) ?`: Why with emphasis on curiosity. Answer : `vì` (casual), `tại vì` (negative: to blame), `bởi vì`.
+- `Tại sao (subject) lại (verb) ?`: Why with emphasis on curiosity.
+    - Answered by : `vì` (casual), `tại vì` (negative: to blame), `bởi vì`.
 - `Thế nào`: how / what…like, to ask about feelings, quality, condition. `Sao` is more casual and spoken.
     - `Quán này sao?`: How is this place?
     - `Thế nào rồi?`: How’s it going?
@@ -70,11 +71,13 @@ Tones are to type after all letters. The system decides where it should be. Pres
 - `có phải là... không?`: Used to ask if something or someone belongs to a category, identity or label.
     - `Anh có phải là giáo viên không?`: Are you a teacher?
     - `Chị ấy có phải là người Nhật không?`: Is she Japanese?
-- `đã… (verb) chưa?`: yes/no for the past. Answered by `rồi` (yes) or `chưa` (no).
+- `đã… (verb) chưa?`: yes/no for the past.
+    - Answered by `rồi` (yes) or `chưa` (no).
 
 ### Type 3: confirmation (isn't it) 80% sure
 
-- `…đúng không`: more conversational. Answered by `Đúng rồi`.
+- `…đúng không`: more conversational. 
+    - Answered by `Đúng rồi`.
 - `…không`
 - `…phải không `: slightly more careful or formal.
     - Answered by `Đúng rồi`, `Phải rồi`, `Dạ` (polite).
@@ -100,12 +103,11 @@ Tones are to type after all letters. The system decides where it should be. Pres
 - `Em`: Younger than you
 - `Con`: Much younger than you
 
-```mermaid
-graph LR
-    A[Ông, Bà] <--> B[Con, Cháu]
-    C[Bác, Chú, Cô] <--> D[Con, Cháu]
-    E[Anh, Chị] <--> F[Em]
-```
+Pronons must always be used in matching pairs:
+
+- `Ông`, `Bà` <--> `Con`, `Cháu`
+- `Bác`, `Chú`, `Cô` <--> `Con`, `Cháu`
+- `Anh`, `Chị` <--> `Em`
 
 ## Là (Is)
 
