@@ -19,6 +19,34 @@ Tones are to type after all letters. The system decides where it should be. Pres
 - `ã`: a
 - `ạ`: a
 
+## Communicate with teacher
+
+### Comprehension and Lesson Progress
+
+- `Anh hiểu rồi.`: I understand.
+- `Anh chưa hiểu.`: I don't understand yet.
+- `I'm finished (with an exercise)`: Anh làm xong rồi.
+- `Anh làm đúng không em?`: Is this correct?
+- `Anh cần một ví dụ.`: I need an example.
+
+### Clarification and Vocabulary
+
+- `[Word] nghĩa là gì em?`: What does [word] mean?
+- `[English word] tiếng Việt nói sao em?`: How do you say [English word] in Vietnamese?
+- `Em nói lại một lần nữa được không?`: Can you repeat that, please?
+- `Em nói chậm lại chút được không?`: Can you speak more slowly?
+- `Từ này viết sao em?`: How do you write/spell this word?
+
+### Technical Issues (Online Lessons)
+
+- `Anh nghe không rõ.`: I can't hear you clearly.
+- `Mạng bị đứng rồi em.`:The video/connection is frozen.
+- `Em gõ vô hộp chat cho anh nha.`: Can you type the word in the chat box?
+
+### Greetings and Goodbyes
+
+- `Chào em, hẹn gặp lại tuần sau!`: Goodbye, see you next time!
+
 ## Questions
 
 3 types of questions:
