@@ -66,28 +66,12 @@ Clone the repository
 git clone (link)
 ```
 
-Create a virtual environment
+Create and test virtual environment
 
 ```bash
 python3 -m venv .venv
-```
-
-Activate the virtual environment
-
-```bash
 source .venv/bin/activate
-```
-
-Verify which pip binary is being used
-
-```bash
 which pip
-```
-
-Upgrade pip
-
-```bash
-pip install --upgrade pip
 ```
 
 Install dependencies from requirements file
@@ -122,11 +106,6 @@ Stage all changes
 
 ```bash
 git add .
-```
-
-Commit changes with a message
-
-```bash
 git commit -m "Message"
 ```
 
@@ -140,6 +119,20 @@ Push local commits to the remote repository
 
 ```bash
 git push
+```
+
+## Test
+
+Launch Pytest with PYTHONPATH
+
+```bash
+PYTHONPATH=src pytest -v
+```
+
+Launch Pytest and see the manually added print()
+
+```bash
+pytest -s
 ```
 
 ## Deploy
@@ -178,16 +171,4 @@ Remove a Docker container after execution
 
 ```bash
 docker run --rm -p 8501:8501 my_streamlit_app
-```
-
-Launch Pytest with PYTHONPATH
-
-```bash
-PYTHONPATH=src pytest -v
-```
-
-Launch Pytest and see the manually added print()
-
-```bash
-pytest -s
 ```
