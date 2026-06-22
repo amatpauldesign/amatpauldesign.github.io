@@ -191,7 +191,7 @@ HF_TOKEN=Token_key_here
 
 Model used is [https://huggingface.co/black-forest-labs/FLUX.1-schnell](https://huggingface.co/black-forest-labs/FLUX.1-schnell).
 
-## ## AI setup for Ollama
+## AI setup for Ollama
 
 Install necessary packages
 
