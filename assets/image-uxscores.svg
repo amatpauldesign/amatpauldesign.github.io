@@ -1,20 +1,19 @@
 <svg width="600" height="250" viewBox="0 0 600 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_2_2)">
+<g clip-path="url(#clip0_197_1364)">
 <rect width="600" height="250" fill="white"/>
-<rect opacity="0.1" width="600" height="250" fill="url(#paint0_linear_2_2)"/>
-<rect x="52" y="169" width="496" height="32" rx="12" fill="url(#paint1_linear_2_2)"/>
-<path d="M403.968 156.87C398.324 159.7 391.676 159.7 386.032 156.87L346.032 136.804C339.269 133.411 335 126.493 335 118.927V69C335 57.9543 343.954 49 355 49H435C446.046 49 455 57.9543 455 69V118.927C455 126.493 450.731 133.411 443.968 136.804L403.968 156.87Z" fill="#5E8F53"/>
+<rect opacity="0.1" width="600" height="250" fill="url(#paint0_linear_197_1364)"/>
+<path d="M536 169C542.627 169 548 174.373 548 181V189C548 195.627 542.627 201 536 201H64C57.3726 201 52 195.627 52 189V181C52 174.373 57.3726 169 64 169H536ZM435 49C446.046 49 455 57.9543 455 69V118.927C455 126.493 450.731 133.411 443.968 136.804L403.968 156.869C398.324 159.7 391.676 159.7 386.032 156.869L346.032 136.804C339.269 133.411 335 126.493 335 118.927V69C335 57.9543 343.954 49 355 49H435Z" fill="url(#paint1_linear_197_1364)"/>
 </g>
 <defs>
-<linearGradient id="paint0_linear_2_2" x1="-2.44509e-07" y1="250" x2="607.55" y2="230.062" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint0_linear_197_1364" x1="-2.44509e-07" y1="250" x2="607.55" y2="230.062" gradientUnits="userSpaceOnUse">
 <stop stop-color="#EEC50B"/>
 <stop offset="1" stop-color="#1E7773"/>
 </linearGradient>
-<linearGradient id="paint1_linear_2_2" x1="52" y1="201" x2="533.168" y2="99.0186" gradientUnits="userSpaceOnUse">
-<stop stop-color="#EEC50B"/>
-<stop offset="1" stop-color="#1E7773"/>
+<linearGradient id="paint1_linear_197_1364" x1="52" y1="125" x2="548" y2="125" gradientUnits="userSpaceOnUse">
+<stop stop-color="#C21500"/>
+<stop offset="1" stop-color="#FFC500"/>
 </linearGradient>
-<clipPath id="clip0_2_2">
+<clipPath id="clip0_197_1364">
 <rect width="600" height="250" fill="white"/>
 </clipPath>
 </defs>
