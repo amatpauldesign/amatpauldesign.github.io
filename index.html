@@ -217,6 +217,10 @@
     .card {
       margin-bottom: 12px;
     }
+
+    .all-margin-bottom .row {
+      margin-bottom: 32px;
+    }
   </style>
 </head>
 
@@ -281,52 +285,47 @@
           I created these tools to streamline my UX Research workflow. Feel free to use them without any limitations.
         </p>
 
-        <div>
+        <div class="all-margin-bottom">
 
           <div class="row row-cols-1 row-cols-md-2 g-4">
             <div class="col">
-              <div class="card">
-                <a href="https://uxscores.streamlit.app/" rel="noopener noreferrer" target="_blank">
-                  <img src="assets/image-uxscores.svg" class="card-img-top">
-                </a>
-                <div class="card-body">
-                  <dt class="card-title">
-                    UX Score Calculator
-                  </dt>
-                  <dd class="card-text">
-                    Simple calculator for UX questionnaires (SUS, UMUX-Lite, etc.).
-                  </dd>
-                  <a style="display: flex; width: fit-content;" class="btn btn-primary"
-                    href="https://uxscores.streamlit.app/" rel="noopener noreferrer" target="_blank">
-                    Launch <span class="material-symbols-rounded">arrow_forward</span>
-                  </a>
-                </div>
-              </div>
+              <a href="https://uxscores.streamlit.app/" rel="noopener noreferrer" target="_blank">
+                <img src="assets/image-uxscores.png" class="img-fluid">
+              </a>
             </div>
             <div class="col">
-              <div class="card">
-                <a href="https://amatpaul.shinyapps.io/textual-analysis/" rel="noopener noreferrer" target="_blank">
-                  <img src="assets/image-transcript.svg" class="card-img-top">
-                </a>
-                <div class="card-body">
-                  <dt class="card-title">
-                    Transcript Analyzer
-                  </dt>
-                  <dd class="card-text">
-                    Load interview transcripts to start a textual quantitative analysis.
-                  </dd>
-                  <a style="display: flex; width: fit-content;" class="btn btn-primary"
-                    href="https://amatpaul.shinyapps.io/textual-analysis/" rel="noopener noreferrer" target="_blank">
-                    Launch <span class="material-symbols-rounded">arrow_forward</span>
-                  </a>
-                </div>
-              </div>
+              <h3>
+                UX Score Calculator
+              </h3>
+              <p class="card-text">
+                Simple calculator for UX questionnaires (SUS, UMUX-Lite, etc.).
+              </p>
+              <a style="display: flex; width: fit-content;" class="btn btn-primary"
+                href="https://uxscores.streamlit.app/" rel="noopener noreferrer" target="_blank">
+                Launch <span class="material-symbols-rounded">arrow_forward</span>
+              </a>
             </div>
           </div>
 
-          
-
-          
+          <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+              <a href="https://amatpaul.shinyapps.io/textual-analysis/" rel="noopener noreferrer" target="_blank">
+                <img src="assets/image-transcript.png" class="img-fluid">
+              </a>
+            </div>
+            <div class="col">
+              <h3>
+                Transcript Analyzer
+              </h3>
+              <p class="card-text">
+                Load interview transcripts to start a textual quantitative analysis.
+              </p>
+              <a style="display: flex; width: fit-content;" class="btn btn-primary"
+                href="https://amatpaul.shinyapps.io/textual-analysis/" rel="noopener noreferrer" target="_blank">
+                Launch <span class="material-symbols-rounded">arrow_forward</span>
+              </a>
+            </div>
+          </div>
 
           <a href="https://github.com/amatpauldesign" class="text-muted" rel="noopener noreferrer" target="_blank">Clone
             them on GitHub</a>
