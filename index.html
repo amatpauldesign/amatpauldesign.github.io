@@ -5,6 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Paul Amat - UX Design</title>
+  <meta name="description" content="Senior UX Designer &amp; Researcher working in complex environments, from research through development follow-up, and the go-to person for AI and data on my team.">
+  <meta property="og:title" content="Paul Amat - UX Design">
+  <meta property="og:description" content="Senior UX Designer &amp; Researcher working in complex environments, from research through development follow-up, and the go-to person for AI and data on my team.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://amatpauldesign.github.io/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,9 +64,8 @@
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      font-size: 0.875rem;
       font-weight: 460;
-      line-height: 1.25rem;
+      line-height: 1.5rem;
       letter-spacing: -0.00563rem;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -97,7 +101,7 @@
     /* Layout */
 
     .page {
-      max-width: 36.375rem;
+      max-width: 40.75rem;
       margin: 0 auto;
       padding: 5rem 1rem 2.5rem;
     }
@@ -111,7 +115,7 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 8rem;
+      height: 4rem;
       background: linear-gradient(#fff 0, rgba(255, 255, 255, .737) 19%, rgba(255, 255, 255, .54) 34%, rgba(255, 255, 255, .38) 47%, rgba(255, 255, 255, .28) 56.5%, rgba(255, 255, 255, .192) 65%, rgba(255, 255, 255, .125) 73%, rgba(255, 255, 255, .075) 80.2%, rgba(255, 255, 255, .043) 86.1%, rgba(255, 255, 255, .02) 91%, rgba(255, 255, 255, .008) 95.2%, rgba(255, 255, 255, .004) 98.2%, rgba(255, 255, 255, 0));
     }
 
@@ -178,12 +182,12 @@
       flex-direction: column;
       gap: 0.25rem;
       padding-bottom: 0.5rem;
-      font-size: 1rem;
-      line-height: 1.375rem;
     }
 
     .intro h1 {
-      font-weight: 500;
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      font-weight: 600;
     }
 
     .intro p {
@@ -208,22 +212,13 @@
     /* Index lists */
 
     .list {
-      padding-top: 2.75rem;
+      padding-top: 4rem;
     }
 
     .list>h2 {
       padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--line);
-      font-weight: 650;
-    }
-
-    .group {
-      display: grid;
-      grid-template-columns: 6.75rem minmax(0, 1fr);
-    }
-
-    .group+.group {
-      border-top: 1px solid var(--line);
+      font-weight: 600;
     }
 
     /* Logo rows */
@@ -243,9 +238,9 @@
 
     .slider img {
       flex-shrink: 0;
+      outline-offset: -2px;
     }
 
-    /* Native logo size: all six fit the column without scrolling on desktop */
     .zone-clients {
       gap: 24px;
     }
@@ -254,9 +249,27 @@
       height: 20px;
     }
 
+    /* Optical balance: the heaviest marks are smaller, the finest ones larger */
+    .zone-clients img[alt="CANAL+"] {
+      height: 17px;
+    }
+
+    .zone-clients img[alt="Airbus"],
+    .zone-clients img[alt="BNP Paribas"] {
+      height: 18px;
+    }
+
+    .zone-clients img[alt="Pacifica"],
+    .zone-clients img[alt="PSA"] {
+      height: 22px;
+    }
+
+    .zone-tools {
+      gap: 16px;
+    }
+
     .zone-tools img {
-      height: 32px;
-      margin-right: 16px;
+      height: 28px;
     }
 
     .tooltip {
@@ -266,8 +279,6 @@
       border-radius: 0.375rem;
       background: var(--body-color);
       color: #fff;
-      font-size: 0.75rem;
-      line-height: 1rem;
       white-space: nowrap;
       pointer-events: none;
       opacity: 0;
@@ -279,13 +290,13 @@
       opacity: 1;
     }
 
-    .label {
-      color: var(--soft);
-      padding-top: 0.625rem;
-    }
-
     .rows>li+li {
       border-top: 1px solid var(--line);
+    }
+
+    /* Sections end flush so the gap between them stays even */
+    .rows>li:last-child .row {
+      padding-bottom: 0;
     }
 
     .row {
@@ -300,6 +311,14 @@
       text-decoration-skip-ink: none;
       text-underline-offset: 3px;
       transition: text-decoration-color .2s;
+    }
+
+    /* Links open in a new tab; the no-break space keeps the arrow with the last word */
+    a[target="_blank"] .name::after,
+    a.link[target="_blank"]::after {
+      content: "\00a0\2197";
+      content: "\00a0\2197" / ", opens in a new tab";
+      color: var(--soft);
     }
 
     a.row:hover .name,
@@ -328,21 +347,17 @@
       color: var(--body-color);
     }
 
-    .nowrap {
-      white-space: nowrap;
-    }
-
     .new {
       position: relative;
       display: inline-block;
-      margin-left: 0.875rem;
+      margin-left: 1rem;
       color: var(--accent);
     }
 
     .new svg {
       position: absolute;
       top: -2px;
-      left: -8px;
+      left: -9px;
       overflow: visible;
       pointer-events: none;
     }
@@ -363,20 +378,9 @@
     /* Footer */
 
     .footer {
-      padding: 2.5rem 0 2.5rem;
+      padding: 4rem 0 2.5rem;
       color: var(--soft);
-      font-size: 0.8125rem;
-      letter-spacing: -0.0025rem;
       text-align: center;
-    }
-
-    .footer-wrap::before {
-      content: "";
-      display: block;
-      width: 3.125rem;
-      height: 1px;
-      margin-top: 2.5rem;
-      background: #ededed;
     }
 
     @media screen and (max-width: 768px) {
@@ -385,11 +389,7 @@
       }
 
       .page::before {
-        height: 2.5rem;
-      }
-
-      .group {
-        grid-template-columns: 3rem minmax(0, 1fr);
+        height: 2rem;
       }
 
       /* Rows stay on one line unless the name and meta can't fit together */
@@ -426,11 +426,11 @@
 
     <header class="intro">
       <h1>Paul Amat</h1>
-      <p>UX Designer &amp; Researcher</p>
+      <p>Senior UX Designer &amp; Researcher</p>
     </header>
 
     <p>
-      Senior UX Designer, highly comfortable in complex environments, able to contribute from the research phase through development follow-up. Alongside my expertise in design and user research, I am also the go-to person for AI and data on my team.
+      I work in complex environments, from the research phase through development follow-up. Alongside design and user research, I am also the go-to person for AI and data on my team.
     </p>
 
     <p>
@@ -441,12 +441,12 @@
     <section class="list">
       <h2>Clients</h2>
       <div class="slider zone-clients">
-        <img src="assets/logo-airbus.svg" alt="Airbus">
-        <img src="assets/logo-bnp.svg" alt="BNP Paribas">
-        <img src="assets/logo-canalplus.svg" alt="CANAL+">
-        <img src="assets/logo-loreal.svg" alt="L'Oréal">
-        <img src="assets/logo-pacifica.svg" alt="Pacifica">
-        <img src="assets/logo-psa.svg" alt="PSA">
+        <img src="assets/logo-airbus.svg" alt="Airbus" tabindex="0">
+        <img src="assets/logo-bnp.svg" alt="BNP Paribas" tabindex="0">
+        <img src="assets/logo-canalplus.svg" alt="CANAL+" tabindex="0">
+        <img src="assets/logo-loreal.svg" alt="L'Oréal" tabindex="0">
+        <img src="assets/logo-pacifica.svg" alt="Pacifica" tabindex="0">
+        <img src="assets/logo-psa.svg" alt="PSA" tabindex="0">
       </div>
     </section>
 
@@ -459,7 +459,6 @@
               <span class="name">UX Score Calculator</span>
               <span class="desc">Simple calculator for UX questionnaires (SUS, UMUX-Lite, etc.).</span>
             </span>
-            <span class="meta">Launch</span>
           </a>
         </li>
         <li>
@@ -468,7 +467,6 @@
               <span class="name">Transcript Analyzer</span>
               <span class="desc">Load interview transcripts to start a textual quantitative analysis.</span>
             </span>
-            <span class="meta">Launch</span>
           </a>
         </li>
         <li>
@@ -534,158 +532,88 @@
     <section class="list">
       <h2>Favorite tools</h2>
       <div class="slider zone-tools">
-        <img src="assets/tool-figma.svg" alt="Figma/FigJam">
-        <img src="assets/tool-dovetail.svg" alt="Dovetail">
-        <img src="assets/tool-maze.svg" alt="Maze">
-        <img src="assets/tool-usertesting.svg" alt="UserTesting">
-        <img src="assets/tool-zeroheight.svg" alt="ZeroHeight">
-        <img src="assets/tool-optimalworkshop.svg" alt="Optimal Workshop">
-        <img src="assets/tool-maxqda.svg" alt="Maxqda">
-        <img src="assets/tool-powerbi.svg" alt="Power BI">
-        <img src="assets/tool-rstudio.svg" alt="R Studio">
-        <img src="assets/tool-python.svg" alt="Python">
+        <img src="assets/tool-figma.svg" alt="Figma/FigJam" tabindex="0">
+        <img src="assets/tool-dovetail.svg" alt="Dovetail" tabindex="0">
+        <img src="assets/tool-maze.svg" alt="Maze" tabindex="0">
+        <img src="assets/tool-usertesting.svg" alt="UserTesting" tabindex="0">
+        <img src="assets/tool-zeroheight.svg" alt="ZeroHeight" tabindex="0">
+        <img src="assets/tool-optimalworkshop.svg" alt="Optimal Workshop" tabindex="0">
+        <img src="assets/tool-maxqda.svg" alt="Maxqda" tabindex="0">
+        <img src="assets/tool-powerbi.svg" alt="Power BI" tabindex="0">
+        <img src="assets/tool-rstudio.svg" alt="R Studio" tabindex="0">
+        <img src="assets/tool-python.svg" alt="Python" tabindex="0">
       </div>
     </section>
 
     <section class="list">
       <h2>Certifications</h2>
-
-      <div class="group">
-        <span class="label">2026</span>
-        <ul class="rows">
-          <li>
-            <div class="row row-stack">
-              <span>
-                AIUR | Certificate in AI for User
-                <span class="nowrap">Research<span class="new">New<svg width="44" height="24" viewBox="0 0 44 24" aria-hidden="true"><path pathLength="1" d="M27 2.2C35 1.6 42.5 5 42.8 11C43.1 17.6 33 22.2 21.5 21.8C10 21.4 1 17.8 1.2 11.4C1.4 5.2 10.8 1.2 22.6 1.4C34.2 1.6 43.4 6.2 42.6 12.8C42 18 35.6 20.8 29 21.6"/></svg></span></span>
-              </span>
-              <span class="meta">UX Design Institute</span>
-            </div>
-          </li>
-          <li>
-            <div class="row row-stack">
-              <span>A/B Testing</span>
-              <span class="meta">CXL</span>
-            </div>
-          </li>
-          <li>
-            <div class="row row-stack">
-              <span>Behavioral Design</span>
-              <span class="meta">CXL</span>
-            </div>
-          </li>
-          <li>
-            <div class="row row-stack">
-              <span>Strategic Analytics for GA4</span>
-              <span class="meta">CXL</span>
-            </div>
-          </li>
-          <li>
-            <div class="row row-stack">
-              <span>English C1</span>
-              <span class="meta">GoFluent</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="group">
-        <span class="label">2025</span>
-        <ul class="rows">
-          <li>
-            <div class="row row-stack">
-              <span>Data Analyst | Design in Power BI</span>
-              <span class="meta">DataCamp</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="group">
-        <span class="label">2023</span>
-        <ul class="rows">
-          <li>
-            <div class="row row-stack">
-              <span>Digital Accessibility</span>
-              <span class="meta">Access42</span>
-            </div>
-          </li>
-          <li>
-            <div class="row row-stack">
-              <span>Qualitative Research Design and Methods</span>
-              <span class="meta">Coursera</span>
-            </div>
-          </li>
-          <!-- <li>
-            <div class="row row-stack">
-              <span>Methods and Statistics in Social Sciences</span>
-              <span class="meta">Coursera</span>
-            </div>
-          </li> -->
-          <li>
-            <div class="row row-stack">
-              <span>Gamification</span>
-              <span class="meta">Coursera</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <!-- <div class="group">
-        <span class="label">2021</span>
-        <ul class="rows">
-          <li>
-            <div class="row row-stack">
-              <span>Micro-Expressions</span>
-              <span class="meta">Paul Ekman Group</span>
-            </div>
-          </li>
-        </ul>
-      </div> -->
-
-      <div class="group">
-        <span class="label"></span>
-        <ul class="rows">
-          <li>
-            <a class="row soft" href="https://www.linkedin.com/in/paul-amat/details/certifications/" rel="noopener noreferrer" target="_blank"><span class="name">More on LinkedIn</span></a>
-          </li>
-        </ul>
-      </div>
+      <ul class="rows">
+        <li>
+          <div class="row row-stack">
+            <span>AI for User Research<span class="new">New<svg width="52" height="28" viewBox="0 0 44 24" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M27 2.2C35 1.6 42.5 5 42.8 11C43.1 17.6 33 22.2 21.5 21.8C10 21.4 1 17.8 1.2 11.4C1.4 5.2 10.8 1.2 22.6 1.4C34.2 1.6 43.4 6.2 42.6 12.8C42 18 35.6 20.8 29 21.6"/></svg></span></span>
+            <span class="meta">UX Design Institute, 2026</span>
+          </div>
+        </li>
+        <li>
+          <div class="row row-stack">
+            <span>A/B testing &amp; Behavioral design</span>
+            <span class="meta">CXL, 2026</span>
+          </div>
+        </li>
+        <li>
+          <div class="row row-stack">
+            <span>Digital Accessibility</span>
+            <span class="meta">Access42, 2023</span>
+          </div>
+        </li>
+        <li>
+          <div class="row row-stack">
+            <span>Qualitative Research Design and Methods</span>
+            <span class="meta">Emory University, 2023</span>
+          </div>
+        </li>
+        <li>
+          <div class="row row-stack">
+            <span>Methods and Statistics in Social Sciences</span>
+            <span class="meta">University of Amsterdam, 2023</span>
+          </div>
+        </li>
+        <li>
+          <div class="row row-stack">
+            <span>Data Analyst</span>
+            <span class="meta">DataCamp, 2025</span>
+          </div>
+        </li>
+        <!-- <li><div class="row row-stack"><span>Gamification</span><span class="meta">The Wharton School, 2023</span></div></li> -->
+        <!-- <li><div class="row row-stack"><span>Exploratory &amp; Sentiment Analysis with Textual Data in R</span><span class="meta">Coursera, 2023</span></div></li> -->
+        <!-- <li><div class="row row-stack"><span>Micro Expressions Training</span><span class="meta">Paul Ekman Group, 2021</span></div></li> -->
+        <li>
+          <a class="row soft" href="https://www.linkedin.com/in/paul-amat/details/certifications/" rel="noopener noreferrer" target="_blank"><span class="name">More on LinkedIn</span></a>
+        </li>
+      </ul>
     </section>
 
     <section class="list">
       <h2>Education</h2>
-
-      <div class="group">
-        <span class="label">2018</span>
-        <ul class="rows">
-          <li>
-            <div class="row row-stack">
-              <span>Master UX Design &amp; Research</span>
-              <span class="meta">L'Ecole Multimédia, RNCP36289</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="group">
-        <span class="label">2015</span>
-        <ul class="rows">
-          <li>
-            <div class="row row-stack">
-              <span>Master Industrial Design</span>
-              <span class="meta">Créapôle ESDI, RNCP17264</span>
-            </div>
-          </li>
-        </ul>
-      </div>
+      <ul class="rows">
+        <li>
+          <div class="row row-stack">
+            <span>Master UX Design &amp; Research</span>
+            <span class="meta">L'Ecole Multimédia, RNCP36289, 2018</span>
+          </div>
+        </li>
+        <li>
+          <div class="row row-stack">
+            <span>Master Industrial Design</span>
+            <span class="meta">Créapôle ESDI, RNCP17264, 2015</span>
+          </div>
+        </li>
+      </ul>
     </section>
 
-    <div class="footer-wrap" style="margin-bottom: 5rem;">
-      <footer class="footer">
-        <a class="soft link" href="#">Back to top</a>
-      </footer>
-    </div>
+    <footer class="footer" style="margin-bottom: 5rem;">
+      <a class="soft link" href="#">Back to top</a>
+    </footer>
 
     <!-- <div>
       <p>That's for me, but you can take a look if you want:</p>
@@ -704,22 +632,36 @@
     tooltip.setAttribute('aria-hidden', 'true');
     document.body.append(tooltip);
 
+    const showTooltip = img => {
+      const rect = img.getBoundingClientRect();
+      tooltip.textContent = img.alt;
+      tooltip.style.left = `${rect.left + rect.width / 2}px`;
+      tooltip.style.top = `${rect.top - 8}px`;
+      tooltip.classList.add('is-visible');
+    };
+
     const hideTooltip = () => tooltip.classList.remove('is-visible');
 
+    // Tabbing to a logo scrolls it into view: the tooltip follows it instead of closing
+    const onScroll = () => {
+      const focused = document.activeElement;
+      if (focused.matches('.slider img:focus-visible')) {
+        showTooltip(focused);
+      } else {
+        hideTooltip();
+      }
+    };
+
     document.querySelectorAll('.slider').forEach(slider => {
-      slider.addEventListener('scroll', hideTooltip, { passive: true });
+      slider.addEventListener('scroll', onScroll, { passive: true });
       slider.querySelectorAll('img').forEach(img => {
-        img.addEventListener('mouseenter', () => {
-          const rect = img.getBoundingClientRect();
-          tooltip.textContent = img.alt;
-          tooltip.style.left = `${rect.left + rect.width / 2}px`;
-          tooltip.style.top = `${rect.top - 8}px`;
-          tooltip.classList.add('is-visible');
-        });
+        img.addEventListener('mouseenter', () => showTooltip(img));
+        img.addEventListener('focus', () => showTooltip(img));
         img.addEventListener('mouseleave', hideTooltip);
+        img.addEventListener('blur', hideTooltip);
       });
     });
-    window.addEventListener('scroll', hideTooltip, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     document.querySelector('.footer a').addEventListener('click', event => {
       event.preventDefault();
