@@ -6,163 +6,260 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Paul Amat - UX Design</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200..1000&display=swap"
-    rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('[data-bs-toggle="tooltip"]')
-        .forEach(el => new bootstrap.Tooltip(el));
-    });
+    // The entrance animation only plays on the first visit of the session
+    try {
+      if (sessionStorage.getItem('home-visited')) {
+        document.documentElement.classList.add('home-visited');
+      }
+      sessionStorage.setItem('home-visited', '1');
+    } catch (e) { }
   </script>
 
   <style>
     :root {
-      --bs-primary: #E24329;
-      --bs-primary-rgb: 255, 87, 51;
-      --bs-primary-bg-subtle: #ffe3dc;
-      --bs-primary-border-subtle: #ffc1b3;
+      --body-color: #111;
+      --body-bg: #fdfdfc;
+      /* 4.6:1 on the background, keeps secondary text AA compliant */
+      --soft: rgba(0, 0, 0, .54);
+      --line: #f2f2f2;
+      --link-line: #d9d9d9;
+      --link-line-hover: #666;
+      --name-line: #b3b3b3;
+      --highlight: #fff44f;
+      --accent: #CF3B22;
+      --accent-line: #E24329;
+      --focus-color: rgba(0, 122, 255, .5);
+      --selection-bg: #ededed;
     }
 
-    a {
-      color: #E24329;
-    }
-
-    a:hover {
-      color: #BD3822;
-    }
-
-    .btn-primary {
-      --bs-btn-bg: #E24329;
-      --bs-btn-border-color: #E24329;
-      --bs-btn-hover-bg: #BD3822;
-      --bs-btn-hover-border-color: #BD3822;
-      --bs-btn-active-bg: #e64a19;
-      --bs-btn-active-border-color: #e64a19;
-      --bs-btn-disabled-bg: #E24329;
-      --bs-btn-disabled-border-color: #E24329;
-    }
-
-    .btn-outline-secondary {
-      --bs-btn-color: #E24329;
-      --bs-btn-border-color: #E24329;
-
-      --bs-btn-hover-color: #FFF;
-      --bs-btn-hover-bg: #BD3822;
-      --bs-btn-hover-border-color: #BD3822;
-
-      --bs-btn-active-color: #FFF;
-      --bs-btn-active-bg: #e64a19;
-      --bs-btn-active-border-color: #e64a19;
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
     }
 
     html {
-      font-size: 18px;
-      /* défaut ≈ 16px */
+      background: var(--body-bg);
+      color: var(--body-color);
+      scroll-behavior: smooth;
     }
 
-    .body {
-      font-family: "Nunito Sans", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 300;
-      font-style: normal;
-      font-variation-settings:
-        "wdth" 100,
-        "YTLC" 500;
-      background-color: #FFFFFF;
-      color: #171321;
+    body,
+    h1,
+    h2,
+    h3,
+    p,
+    ul {
+      margin: 0;
+      padding: 0;
     }
 
-    .body {
-      margin-top: 0;
-      /* default for mobile */
-      margin-bottom: 0;
-    }
-
-    @media (min-width: 1024px) {
-      .body {
-        margin-top: 60px;
-        margin-bottom: 60px;
-      }
-
-      h1 {
-        font-size: 76px;
-        letter-spacing: -3px;
-        line-height: 0.9;
-      }
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 460;
+      line-height: 1.25rem;
+      letter-spacing: -0.00563rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
 
     h1,
-    h2 {
-      font-weight: 800;
-    }
-
-    a,
-    dt {
-      font-weight: 600;
-    }
-
-    .text-muted {
-      font-size: smaller;
-    }
-
     h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+    h3 {
+      font-size: inherit;
+      font-weight: inherit;
     }
 
-    .no-margin-top {
-      margin-top: 0;
+    ul {
+      list-style: none;
     }
 
-    .container {
-      padding: 2.5rem 2rem 2.5rem 2rem;
-      max-width: 800px;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .zone-pattern {
-      background-color: #FFFFFF;
-      background-size: 10px 10px;
-      background-image: repeating-linear-gradient(45deg,
-          #FDA32680 0,
-          #FDA32680 0.5px,
-          #FFFFFF 0,
-          #FFFFFF 50%);
+    ::selection {
+      color: var(--body-color);
+      background: var(--selection-bg);
     }
 
-    .zone-pattern h2 {
-      font-family: "Funnel", sans-serif;
-      font-size: small;
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 4%;
+    :focus-visible {
+      border-radius: 2px;
+      outline: 2px solid var(--focus-color);
     }
 
-    .lead {
-      letter-spacing: 0.03em;
+    /* Layout */
+
+    .page {
+      max-width: 36.375rem;
+      margin: 0 auto;
+      padding: 5rem 1rem 2.5rem;
     }
 
-    .zone-culture {
-      margin-top: 20px;
-      margin-bottom: 32px;
+    /* Content softly fades out under the top of the viewport while scrolling */
+    .page::before {
+      content: "";
+      pointer-events: none;
+      z-index: 9;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8rem;
+      background: linear-gradient(#fff 0, rgba(255, 255, 255, .737) 19%, rgba(255, 255, 255, .54) 34%, rgba(255, 255, 255, .38) 47%, rgba(255, 255, 255, .28) 56.5%, rgba(255, 255, 255, .192) 65%, rgba(255, 255, 255, .125) 73%, rgba(255, 255, 255, .075) 80.2%, rgba(255, 255, 255, .043) 86.1%, rgba(255, 255, 255, .02) 91%, rgba(255, 255, 255, .008) 95.2%, rgba(255, 255, 255, .004) 98.2%, rgba(255, 255, 255, 0));
     }
 
-    .zone-culture img {
-      height: 32px;
-      margin-right: 4px;
+    /* Entrance */
+
+    @keyframes staggerIn {
+      0% {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .zone-culture div {
+    @keyframes scribble {
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    html:not(.home-visited) .page>* {
+      animation: staggerIn .5s ease both;
+    }
+
+    html:not(.home-visited) .page>:nth-child(2) {
+      animation-delay: .05s;
+    }
+
+    html:not(.home-visited) .page>:nth-child(3) {
+      animation-delay: .1s;
+    }
+
+    html:not(.home-visited) .page>:nth-child(4) {
+      animation-delay: .15s;
+    }
+
+    html:not(.home-visited) .page>:nth-child(5) {
+      animation-delay: .2s;
+    }
+
+    html:not(.home-visited) .page>:nth-child(6) {
+      animation-delay: .25s;
+    }
+
+    html:not(.home-visited) .page>:nth-child(7) {
+      animation-delay: .3s;
+    }
+
+    html:not(.home-visited) .page>:nth-child(8) {
+      animation-delay: .35s;
+    }
+
+    html:not(.home-visited) .page>:nth-child(n+9) {
+      animation-delay: .4s;
+    }
+
+    /* Intro */
+
+    .intro {
       display: flex;
-      margin-right: 12px;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding-bottom: 0.5rem;
+      font-size: 1rem;
+      line-height: 1.375rem;
+    }
+
+    .intro h1 {
+      font-weight: 500;
+    }
+
+    .intro p {
+      color: var(--soft);
+    }
+
+    .page>p {
+      padding-top: 1rem;
+    }
+
+    .link {
+      text-decoration: underline 1px var(--link-line);
+      text-decoration-skip-ink: none;
+      text-underline-offset: 3px;
+      transition: text-decoration-color .2s;
+    }
+
+    .link:hover {
+      text-decoration-color: var(--link-line-hover);
+    }
+
+    /* Index lists */
+
+    .list {
+      padding-top: 2.75rem;
+    }
+
+    .list>h2 {
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* Negative margin keeps the text aligned with the column */
+    .list>h2 mark {
+      margin-left: -0.25rem;
+      padding: 0.0625rem 0.25rem;
+      background: var(--highlight);
+      color: inherit;
+    }
+
+    .group {
+      display: grid;
+      grid-template-columns: 6.75rem minmax(0, 1fr);
+    }
+
+    .group+.group {
+      border-top: 1px solid var(--line);
+    }
+
+    /* Logo rows */
+
+    .slider {
+      display: flex;
+      align-items: center;
+      padding-top: 1rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slider img {
+      flex-shrink: 0;
+    }
+
+    /* Native logo size: all six fit the column without scrolling on desktop */
+    .zone-clients {
+      gap: 24px;
+    }
+
+    .zone-clients img {
+      height: 20px;
     }
 
     .zone-tools img {
@@ -170,498 +267,474 @@
       margin-right: 16px;
     }
 
-    .zone-clients img {
-      height: 24px;
-      margin-right: 24px;
+    .tooltip {
+      position: fixed;
+      z-index: 10;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.375rem;
+      background: var(--body-color);
+      color: #fff;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-50%, -100%);
+      transition: opacity .14s;
     }
 
-    .slider {
+    .tooltip.is-visible {
+      opacity: 1;
+    }
+
+    .label {
+      color: var(--soft);
+      padding-top: 0.625rem;
+    }
+
+    .rows>li+li {
+      border-top: 1px solid var(--line);
+    }
+
+    .row {
       display: flex;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.625rem 0;
+    }
+
+    .name {
+      text-decoration: underline 1px transparent;
+      text-decoration-skip-ink: none;
+      text-underline-offset: 3px;
+      transition: text-decoration-color .2s;
+    }
+
+    a.row:hover .name,
+    a.row:focus-visible .name {
+      text-decoration-color: var(--name-line);
+    }
+
+    .meta {
+      flex-shrink: 0;
+      color: var(--soft);
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+    }
+
+    .desc {
+      display: block;
+      color: var(--soft);
+    }
+
+    .soft {
+      color: var(--soft);
+      transition: color .14s;
+    }
+
+    a.soft:hover {
+      color: var(--body-color);
+    }
+
+    .nowrap {
       white-space: nowrap;
     }
 
-    .slider::-webkit-scrollbar {
-      display: none;
+    .new {
+      position: relative;
+      display: inline-block;
+      margin-left: 0.875rem;
+      color: var(--accent);
     }
 
-    .btn-circle {
-      width: 48px;
-      height: 48px;
-      padding: 0;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .new svg {
+      position: absolute;
+      top: -2px;
+      left: -8px;
+      overflow: visible;
+      pointer-events: none;
     }
 
-    .btn-circle .material-symbols-rounded {
-      font-size: 24px;
+    .new path {
+      fill: none;
+      stroke: var(--accent-line);
+      stroke-width: 1;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 0;
     }
 
-    dl dd p {
-      margin: 0;
+    html:not(.home-visited) .new path {
+      stroke-dashoffset: 1;
+      animation: scribble .9s ease-out .9s forwards;
     }
 
-    .gradient {
-      width: 100%;
-      height: 6px;
-      background: linear-gradient(to right,
-          #E24329,
-          #F28C38,
-          #F7C65A);
+    /* Footer */
+
+    .footer {
+      padding: 2.5rem 0 2.5rem;
+      color: var(--soft);
+      font-size: 0.8125rem;
+      letter-spacing: -0.0025rem;
+      text-align: center;
     }
 
-    .card {
-      margin-bottom: 12px;
+    .footer-wrap::before {
+      content: "";
+      display: block;
+      width: 3.125rem;
+      height: 1px;
+      margin-top: 2.5rem;
+      background: #ededed;
     }
 
-    .all-margin-bottom .row {
-      margin-bottom: 32px;
+    @media screen and (max-width: 768px) {
+      .page {
+        padding: 2rem 1.5rem 2.5rem;
+      }
+
+      .page::before {
+        height: 2.5rem;
+      }
+
+      .group {
+        grid-template-columns: 3rem minmax(0, 1fr);
+      }
+
+      /* Rows stay on one line unless the name and meta can't fit together */
+      .row-stack {
+        flex-wrap: wrap;
+        gap: 0 1rem;
+      }
+
+      .row-stack .meta {
+        margin-left: auto;
+      }
     }
 
-    .app-card {
-      margin-top: 32px;
-      margin-bottom: 32px;
-    }
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
 
-    .app-card h3 {
-      margin-top: 0;
+      html:not(.home-visited) .page>* {
+        animation: none;
+      }
+
+      html:not(.home-visited) .new path {
+        stroke-dashoffset: 0;
+        animation: none;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="gradient">&nbsp;</div>
+  <main class="page">
 
-  <div class="body">
+    <header class="intro">
+      <h1>Paul Amat</h1>
+      <p>UX Designer &amp; Researcher</p>
+    </header>
 
-    <div>
-      <div class="container">
-        <p class="lead">
-          Paul Amat
-        </p>
-        <h1>
-          <span class="text-primary">UX Designer</span> & Researcher
-        </h1>
-        <div class="slider zone-culture">
-          <div class="lead"><img src="assets/culture-design-system.svg"> Design System</div>
-          <div class="lead"><img src="assets/culture-ai.svg"> AI</div>
-          <div class="lead"><img src="assets/culture-dataviz.svg"> DataViz</div>
-        </div>
-        <p>
-          I design impactful digital products, specializing in making complex user journeys simple and intuitive. My experience spans web, mobile apps, and data visualizations, alongside building accessible design systems. By combining user research, data fluency, and generative AI, I turn complex insights into clear action, streamline workflows, and drive measurable product impact.
-        </p>
-        <a href="https://www.linkedin.com/in/paul-amat/" type="button" class="btn btn-outline-secondary btn-sm"
-          rel="noopener noreferrer" target="_blank"><img src="assets/icon-linkedin.svg" style="width: 16px;">
-          LinkedIn
-        </a>
+    <p>
+      Senior UX Designer, highly comfortable in complex environments, able to contribute from the research phase through development follow-up. Alongside my expertise in design and user research, I am also the go-to person for AI and data on my team.
+    </p>
+
+    <p>
+      You can find me on
+      <a class="link" href="https://www.linkedin.com/in/paul-amat/" rel="noopener noreferrer" target="_blank">LinkedIn</a>.
+    </p>
+
+    <section class="list">
+      <h2><mark>I worked with them</mark></h2>
+      <div class="slider zone-clients">
+        <img src="assets/logo-airbus.svg" alt="Airbus">
+        <img src="assets/logo-bnp.svg" alt="BNP Paribas">
+        <img src="assets/logo-canalplus.svg" alt="CANAL+">
+        <img src="assets/logo-loreal.svg" alt="L'Oréal">
+        <img src="assets/logo-pacifica.svg" alt="Pacifica">
+        <img src="assets/logo-psa.svg" alt="PSA">
       </div>
+    </section>
 
-      
+    <section class="list">
+      <h2><mark>Apps</mark></h2>
+      <ul class="rows">
+        <li>
+          <a class="row" href="https://uxscores.streamlit.app/" rel="noopener noreferrer" target="_blank">
+            <span>
+              <span class="name">UX Score Calculator</span>
+              <span class="desc">Simple calculator for UX questionnaires (SUS, UMUX-Lite, etc.).</span>
+            </span>
+            <span class="meta">Launch</span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="https://amatpaul.shinyapps.io/textual-analysis/" rel="noopener noreferrer" target="_blank">
+            <span>
+              <span class="name">Transcript Analyzer</span>
+              <span class="desc">Load interview transcripts to start a textual quantitative analysis.</span>
+            </span>
+            <span class="meta">Launch</span>
+          </a>
+        </li>
+        <li>
+          <a class="row soft" href="https://github.com/amatpauldesign" rel="noopener noreferrer" target="_blank"><span class="name">Clone them on GitHub</span></a>
+        </li>
+      </ul>
+    </section>
 
-    </div>
+    <section class="list">
+      <h2><mark>Articles</mark></h2>
+      <ul class="rows">
+        <li>
+          <a class="row" href="https://medium.com/design-bootcamp/one-year-as-a-ux-designer-in-a-data-science-team-what-i-learned-3ada9f2f07b6?source=friends_link&sk=5435e710e70372c41b9c3a6b618d9828" rel="noopener noreferrer" target="_blank">
+            <span class="name">One Year as a UX Designer in a Data Science Team: What I Learned</span>
+            <span class="meta">uxdesign.cc</span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="https://uxdesign.cc/emotions-and-micro-expressions-in-ux-research-user-testing-a58b66612de?source=friends_link&sk=cb0bdb18f900ebb23745d63aacd21fe7" rel="noopener noreferrer" target="_blank">
+            <span class="name">Micro-expressions in user testing: when users betray their true emotional states</span>
+            <span class="meta">uxdesign.cc</span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="https://uxdesign.cc/design-system-based-on-the-golden-ratio-ui-%C9%B8-e45eb98655cb?source=friends_link&sk=24f9184447ca3c8fdc786a0c49cd5b8d" rel="noopener noreferrer" target="_blank">
+            <span class="name">Rhythm your Design System with golden ratio</span>
+            <span class="meta">uxdesign.cc</span>
+          </a>
+        </li>
+        <li>
+          <a class="row soft" href="https://amatpaul.medium.com/" rel="noopener noreferrer" target="_blank"><span class="name">More on Medium</span></a>
+        </li>
+      </ul>
+    </section>
 
-    <div class="zone-elevated zone-pattern zone-clients">
-      <div class="container">
-        <h2 class="no-margin-top">
-          I worked with them
-        </h2>
-        <div class="slider">
-          <img src="assets/logo-airbus.svg" data-bs-title="Airbus" data-bs-toggle="tooltip" data-bs-placement="top">
-          <img src="assets/logo-bnp.svg" data-bs-title="BNP Paribas" data-bs-toggle="tooltip" data-bs-placement="top">
-          <img src="assets/logo-canalplus.svg" data-bs-title="CANAL+" data-bs-toggle="tooltip" data-bs-placement="top">
-          <img src="assets/logo-loreal.svg" data-bs-title="L'Oréal" data-bs-toggle="tooltip" data-bs-placement="top">
-          <img src="assets/logo-pacifica.svg" data-bs-title="Pacifica" data-bs-toggle="tooltip" data-bs-placement="top">
-          <img src="assets/logo-psa.svg" data-bs-title="PSA" data-bs-toggle="tooltip" data-bs-placement="top">
-        </div>
+    <section class="list">
+      <h2><mark>R Notebooks</mark></h2>
+      <ul class="rows">
+        <li>
+          <a class="row" href="https://01a048cb-f055-9eb6-79ab-29cf21ae4e7f.share.connect.posit.cloud/" rel="noopener noreferrer" target="_blank">
+            <span class="name">A/B Test Simulation</span>
+            <span class="meta">posit.cloud</span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="https://01a048cc-4625-c2d1-696a-19bb3ab67fc0.share.connect.posit.cloud/" rel="noopener noreferrer" target="_blank">
+            <span class="name">Behavioral Persona Clustering</span>
+            <span class="meta">posit.cloud</span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="https://01a048d0-1bca-8958-2282-6e3bd3bde7dc.share.connect.posit.cloud/" rel="noopener noreferrer" target="_blank">
+            <span class="name">SEQ &amp; Task Time Analysis</span>
+            <span class="meta">posit.cloud</span>
+          </a>
+        </li>
+        <li>
+          <a class="row soft" href="https://connect.posit.cloud/amatpaul" rel="noopener noreferrer" target="_blank"><span class="name">More on Posit Cloud</span></a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="list">
+      <h2><mark>I love those tools</mark></h2>
+      <div class="slider zone-tools">
+        <img src="assets/tool-figma.svg" alt="Figma/FigJam">
+        <img src="assets/tool-dovetail.svg" alt="Dovetail">
+        <img src="assets/tool-maze.svg" alt="Maze">
+        <img src="assets/tool-usertesting.svg" alt="UserTesting">
+        <img src="assets/tool-zeroheight.svg" alt="ZeroHeight">
+        <img src="assets/tool-optimalworkshop.svg" alt="Optimal Workshop">
+        <img src="assets/tool-maxqda.svg" alt="Maxqda">
+        <img src="assets/tool-powerbi.svg" alt="Power BI">
+        <img src="assets/tool-rstudio.svg" alt="R Studio">
+        <img src="assets/tool-python.svg" alt="Python">
       </div>
-    </div>
+    </section>
 
-    <div>
-      <div class="container">
+    <section class="list">
+      <h2><mark>Certifications</mark></h2>
 
-        <h2>
-          Apps
-        </h2>
-
-        <p>
-          I created these tools to streamline my UX Research workflow. Feel free to use them!
-        </p>
-
-        <div class="all-margin-bottom">
-
-          <div class="row row-cols-1 row-cols-md-2 g-4 app-card">
-            <div class="col">
-              <a href="https://uxscores.streamlit.app/" rel="noopener noreferrer" target="_blank">
-                <img src="assets/image-uxscores.png" class="img-fluid">
-              </a>
+      <div class="group">
+        <span class="label">2026</span>
+        <ul class="rows">
+          <li>
+            <div class="row row-stack">
+              <span>
+                AIUR | Certificate in AI for User
+                <span class="nowrap">Research<span class="new">New<svg width="44" height="24" viewBox="0 0 44 24" aria-hidden="true"><path pathLength="1" d="M27 2.2C35 1.6 42.5 5 42.8 11C43.1 17.6 33 22.2 21.5 21.8C10 21.4 1 17.8 1.2 11.4C1.4 5.2 10.8 1.2 22.6 1.4C34.2 1.6 43.4 6.2 42.6 12.8C42 18 35.6 20.8 29 21.6"/></svg></span></span>
+              </span>
+              <span class="meta">UX Design Institute</span>
             </div>
-            <div class="col">
-              <h3>
-                UX Score Calculator
-              </h3>
-              <p class="card-text">
-                Simple calculator for UX questionnaires (SUS, UMUX-Lite, etc.).
-              </p>
-              <a style="display: flex; width: fit-content;" class="btn btn-primary"
-                href="https://uxscores.streamlit.app/" rel="noopener noreferrer" target="_blank">
-                Launch <span class="material-symbols-rounded">arrow_forward</span>
-              </a>
+          </li>
+          <li>
+            <div class="row row-stack">
+              <span>A/B Testing</span>
+              <span class="meta">CXL</span>
             </div>
-          </div>
-
-          <div class="row row-cols-1 row-cols-md-2 g-4 app-card">
-            <div class="col">
-              <a href="https://amatpaul.shinyapps.io/textual-analysis/" rel="noopener noreferrer" target="_blank">
-                <img src="assets/image-transcript.png" class="img-fluid">
-              </a>
+          </li>
+          <li>
+            <div class="row row-stack">
+              <span>Behavioral Design</span>
+              <span class="meta">CXL</span>
             </div>
-            <div class="col">
-              <h3>
-                Transcript Analyzer
-              </h3>
-              <p class="card-text">
-                Load interview transcripts to start a textual quantitative analysis.
-              </p>
-              <a style="display: flex; width: fit-content;" class="btn btn-primary"
-                href="https://amatpaul.shinyapps.io/textual-analysis/" rel="noopener noreferrer" target="_blank">
-                Launch <span class="material-symbols-rounded">arrow_forward</span>
-              </a>
+          </li>
+          <li>
+            <div class="row row-stack">
+              <span>Strategic Analytics for GA4</span>
+              <span class="meta">CXL</span>
             </div>
-          </div>
-
-          <a href="https://github.com/amatpauldesign" class="text-muted" rel="noopener noreferrer" target="_blank">Clone
-            them on GitHub</a>
-
-        </div>
-
-        <h2>
-          Articles
-        </h2>
-
-        <dl>
-
-          <dt>
-            <a href="https://medium.com/design-bootcamp/one-year-as-a-ux-designer-in-a-data-science-team-what-i-learned-3ada9f2f07b6?source=friends_link&sk=5435e710e70372c41b9c3a6b618d9828"
-              target="_blank">
-              One Year as a UX Designer in a Data Science Team: What I Learned
-            </a>
-          </dt>
-          <dd class="text-muted">
-            uxdesign.cc
-          </dd>
-
-          <dt>
-            <a href="https://uxdesign.cc/emotions-and-micro-expressions-in-ux-research-user-testing-a58b66612de?source=friends_link&sk=cb0bdb18f900ebb23745d63aacd21fe7"
-              target="_blank">
-              Micro-expressions in user testing: when users betray their true emotional states
-            </a>
-          </dt>
-          <dd class="text-muted">
-            uxdesign.cc
-          </dd>
-
-          <dt>
-            <a href="https://uxdesign.cc/design-system-based-on-the-golden-ratio-ui-%C9%B8-e45eb98655cb?source=friends_link&sk=24f9184447ca3c8fdc786a0c49cd5b8d"
-              target="_blank">
-              Rhythm your Design System with golden ratio
-            </a>
-          </dt>
-          <dd class="text-muted">
-            uxdesign.cc
-          </dd>
-
-        </dl>
-
-        <a href="https://amatpaul.medium.com/" class="text-muted" rel="noopener noreferrer" target="_blank">More on
-          Medium</a>
-
-        <h2>
-          R Notebooks
-        </h2>
-
-        <dl>
-
-          <dt>
-            <a href="https://01a048cb-f055-9eb6-79ab-29cf21ae4e7f.share.connect.posit.cloud/"
-              target="_blank">
-              A/B Test Simulation
-            </a>
-          </dt>
-          <dd class="text-muted">
-            posit.cloud
-          </dd>
-
-          <dt>
-            <a href="https://01a048cc-4625-c2d1-696a-19bb3ab67fc0.share.connect.posit.cloud/"
-              target="_blank">
-              Behavioral Persona Clustering
-            </a>
-          </dt>
-          <dd class="text-muted">
-            posit.cloud
-          </dd>
-
-          <dt>
-            <a href="https://01a048d0-1bca-8958-2282-6e3bd3bde7dc.share.connect.posit.cloud/"
-              target="_blank">
-              SEQ & Task Time Analysis
-            </a>
-          </dt>
-          <dd class="text-muted">
-            posit.cloud
-          </dd>
-
-        </dl>
-
-        <a href="https://connect.posit.cloud/amatpaul" class="text-muted" rel="noopener noreferrer" target="_blank">More on
-          Posit Cloud</a>
-
+          </li>
+          <li>
+            <div class="row row-stack">
+              <span>Anglais C1</span>
+              <span class="meta">GoFluent</span>
+            </div>
+          </li>
+        </ul>
       </div>
+
+      <div class="group">
+        <span class="label">2025</span>
+        <ul class="rows">
+          <li>
+            <div class="row row-stack">
+              <span>Data Analyst | Design in Power BI</span>
+              <span class="meta">DataCamp</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <span class="label">2023</span>
+        <ul class="rows">
+          <li>
+            <div class="row row-stack">
+              <span>Digital Accessibility</span>
+              <span class="meta">Access42</span>
+            </div>
+          </li>
+          <li>
+            <div class="row row-stack">
+              <span>Qualitative Research Design and Methods</span>
+              <span class="meta">Coursera</span>
+            </div>
+          </li>
+          <!-- <li>
+            <div class="row row-stack">
+              <span>Methods and Statistics in Social Sciences</span>
+              <span class="meta">Coursera</span>
+            </div>
+          </li> -->
+          <li>
+            <div class="row row-stack">
+              <span>Gamification</span>
+              <span class="meta">Coursera</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- <div class="group">
+        <span class="label">2021</span>
+        <ul class="rows">
+          <li>
+            <div class="row row-stack">
+              <span>Micro-Expressions</span>
+              <span class="meta">Paul Ekman Group</span>
+            </div>
+          </li>
+        </ul>
+      </div> -->
+
+      <div class="group">
+        <span class="label"></span>
+        <ul class="rows">
+          <li>
+            <a class="row soft" href="https://www.linkedin.com/in/paul-amat/details/certifications/" rel="noopener noreferrer" target="_blank"><span class="name">More on LinkedIn</span></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="list">
+      <h2><mark>Education</mark></h2>
+
+      <div class="group">
+        <span class="label">2018</span>
+        <ul class="rows">
+          <li>
+            <div class="row row-stack">
+              <span>Master UX Design &amp; Research</span>
+              <span class="meta">L'Ecole Multimédia, RNCP36289</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <span class="label">2015</span>
+        <ul class="rows">
+          <li>
+            <div class="row row-stack">
+              <span>Master Design industriel</span>
+              <span class="meta">Créapôle ESDI, RNCP17264</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="footer-wrap" style="margin-bottom: 5rem;">
+      <footer class="footer">
+        <a class="soft link" href="#">Back to top</a>
+      </footer>
     </div>
 
-    <div class="zone-elevated zone-pattern zone-tools">
-      <div class="container">
-        <h2 class="no-margin-top">
-          I love those tools
-        </h2>
-        <div class="slider">
-          <img src="assets/tool-figma.svg" data-bs-title="Figma/FigJam" data-bs-toggle="tooltip" data-bs-placement="top">
-          <img src="assets/tool-dovetail.svg" data-bs-title="Dovetail" data-bs-toggle="tooltip" data-bs-placement="top">
-          <img src="assets/tool-maze.svg" data-bs-title="Maze" data-bs-toggle="tooltip" data-bs-placement="top">
-          <img src="assets/tool-usertesting.svg" data-bs-title="UserTesting" data-bs-toggle="tooltip"
-            data-bs-placement="top">
-          <img src="assets/tool-zeroheight.svg" data-bs-title="ZeroHeight" data-bs-toggle="tooltip"
-            data-bs-placement="top">
-          <img src="assets/tool-optimalworkshop.svg" data-bs-title="Optimal Workshop" data-bs-toggle="tooltip"
-            data-bs-placement="top">
-          <img src="assets/tool-maxqda.svg" data-bs-title="Maxqda" data-bs-toggle="tooltip" data-bs-placement="top">
-          <img src="assets/tool-powerbi.svg" data-bs-title="Power BI" data-bs-toggle="tooltip" data-bs-placement="top">
-          <img src="assets/tool-rstudio.svg" data-bs-title="R Studio" data-bs-toggle="tooltip" data-bs-placement="top">
-          <img src="assets/tool-python.svg" data-bs-title="Python" data-bs-toggle="tooltip" data-bs-placement="top">
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="container">
-
-
-        <h2>
-          Profile
-        </h2>
-
-        <p>
-          With 8 years of experience as a Senior Practitioner, I have developed a broad set of skills, with a core
-          specialization in Design Systems, UX Research & Data Literacy.
-        </p>
-
-        <style>
-          .chart {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-            overflow-x: auto;
-            scrollbar-width: 1px;
-            -webkit-overflow-scrolling: touch;
-          }
-
-          .chart-col {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            /* Distribue l'espace de manière parfaitement égale (1/5ème chacun ici) */
-            min-width: 0;
-            /* Empêche le texte long de forcer la colonne à s'agrandir */
-            min-width: 160px;
-          }
-
-          .block,
-          .title {
-            padding-top: 0.4rem;
-            box-sizing: border-box;
-            height: 60px;
-          }
-
-          .title {
-            font-weight: 600;
-            border-bottom: 1px solid #d2d2d2;
-          }
-        </style>
-
-        <div class="chart small">
-
-          <div class="chart-col">
-            <div class="title">UX Design</div>
-            <div class="block">Cartographie des parcours</div>
-            <div class="block">Wireframing &amp; Prototypage</div>
-            <div class="block">Design Systems</div>
-            <div class="block">Accessibilité (RGAA)</div>
-            <div class="block">Eco-design (RGESN)</div>
-            <div class="block">Behavioral Design, CRO</div>
-            <div class="block">Web Responsive</div>
-            <div class="block">iOS, Android</div>
-            <!-- <div class="block">Ateliers collaboratifs</div> -->
-            <div class="block">Design Ops</div>
-            <div class="block">Mentorat &amp; Évangélisation</div>
-          </div>
-
-          <div class="chart-col">
-            <div class="title">UX Research</div>
-            <div class="block">Persona &amp; Empathy Map</div>
-            <div class="block">Interviews, Focus group, Observation, Questionnaire</div>
-            <div class="block">Analyse thématique</div>
-            <div class="block">Tests utilisateurs</div>
-            <div class="block">Cartographie d'expérience</div>
-            <div class="block">Tri de cartes</div>
-            <div class="block">Recrutement &amp; Panélistes</div>
-            <div class="block">Évaluation heuristique</div>
-            <div class="block">Revue de littérature</div>
-            <div class="block">Research Repository</div>
-          </div>
-
-          <div class="chart-col">
-            <div class="title">UX Data &amp; IA</div>
-            <div class="block">UX Metrics &amp; Analytics</div>
-            <div class="block">A/B Testing</div>
-            <div class="block">DataViz &amp; Dashboards</div>
-            <div class="block">Textual &amp; Sentiment Analysis</div>
-            <div class="block">Automatisation et accélération par l’IA</div>
-            <div class="block">Statistiques inférentielles</div>
-          </div>
-
-        </div>
-
-
-
-        <h2>
-          Certifications
-        </h2>
-
-        <dl>
-
-          <dt>
-            AIUR | Certificate in AI for User Research
-          </dt>
-          <dd class="text-muted">
-            UX Design Institute (2026)
-          </dd>
-
-          <dt>
-            A/B Testing
-          </dt>
-          <dd class="text-muted">
-            CXL (2026)
-          </dd>
-
-          <dt>
-            Behavioral Design
-          </dt>
-          <dd class="text-muted">
-            CXL (2026)
-          </dd>
-
-          <dt>
-            Strategic Analytics for GA4
-          </dt>
-          <dd class="text-muted">
-            CXL (2026)
-          </dd>
-
-          <dt>
-            Anglais C1
-          </dt>
-          <dd class="text-muted">
-            GoFluent (2026)
-          </dd>
-
-          <dt>
-            Data Analyst | Design in Power BI
-          </dt>
-          <dd class="text-muted">
-            DataCamp (2025)
-          </dd>
-
-          <dt>
-            Digital Accessibility
-          </dt>
-          <dd class="text-muted">
-            Access42 (2023)
-          </dd>
-
-          <dt>
-            Qualitative Research Design and Methods
-          </dt>
-          <dd class="text-muted">
-            Coursera (2023)
-          </dd>
-
-          <!-- <dt>
-          Methods and Statistics in Social Sciences
-        </dt>
-        <dd class="text-muted">
-          Coursera (2023)
-        </dd> -->
-
-          <dt>
-            Gamification
-          </dt>
-          <dd class="text-muted">
-            Coursera (2023)
-          </dd>
-
-          <!-- <dt>
-          Micro-Expressions
-        </dt>
-        <dd class="text-muted">
-          Paul Ekman Group (2021)
-        </dd> -->
-        </dl>
-
-        <a href="https://www.linkedin.com/in/paul-amat/details/certifications/" class="text-muted"
-          rel="noopener noreferrer" target="_blank">More on LinkedIn</a>
-
-        <h2>
-          Education
-        </h2>
-        <dl>
-          <dt>
-            Master UX Design & Research
-          </dt>
-          <dd class="text-muted">
-            L'Ecole Multimédia, RNCP36289 (2018)
-          </dd>
-          <dt>
-            Master Design industriel
-          </dt>
-          <dd class="text-muted">
-            Créapôle ESDI, RNCP17264 (2015)
-          </dd>
-        </dl>
-      </div>
-    </div>
-
-    <div>
-      <div class="container d-flex justify-content-center" style="padding-top: 0; padding-bottom: 6rem;">
-        <a href="#" class="btn btn-outline-secondary btn-circle">
-          <span class="material-symbols-rounded">arrow_upward</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- <div class="container">
-      <p class="text-muted small">That's for me, but you can take a look if you want:</p>
-      <ul style="list-style-type: none;">
-        <li><a href="snippets.html" class="text-muted" rel="noopener noreferrer" target="_blank">Snippets</a></li>
-        <li><a href="vietnamese.html" class="text-muted" rel="noopener noreferrer" target="_blank">Vietnamese</a></li>
+    <!-- <div>
+      <p>That's for me, but you can take a look if you want:</p>
+      <ul>
+        <li><a href="snippets.html" rel="noopener noreferrer" target="_blank">Snippets</a></li>
+        <li><a href="vietnamese.html" rel="noopener noreferrer" target="_blank">Vietnamese</a></li>
       </ul>
     </div> -->
 
-  </div>
+  </main>
+
+  <script>
+    // Logo names, in a fixed element because the sliders clip their overflow
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tooltip';
+    tooltip.setAttribute('aria-hidden', 'true');
+    document.body.append(tooltip);
+
+    const hideTooltip = () => tooltip.classList.remove('is-visible');
+
+    document.querySelectorAll('.slider').forEach(slider => {
+      slider.addEventListener('scroll', hideTooltip, { passive: true });
+      slider.querySelectorAll('img').forEach(img => {
+        img.addEventListener('mouseenter', () => {
+          const rect = img.getBoundingClientRect();
+          tooltip.textContent = img.alt;
+          tooltip.style.left = `${rect.left + rect.width / 2}px`;
+          tooltip.style.top = `${rect.top - 8}px`;
+          tooltip.classList.add('is-visible');
+        });
+        img.addEventListener('mouseleave', hideTooltip);
+      });
+    });
+    window.addEventListener('scroll', hideTooltip, { passive: true });
+
+    document.querySelector('.footer a').addEventListener('click', event => {
+      event.preventDefault();
+      const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  </script>
 
 </body>
 
